@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotConsole", "BotConsole\BotConsole.csproj", "{69FCF1C5-2F5F-49B2-A665-85C842409F2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotConsole", "BotConsole\BotConsole.csproj", "{69FCF1C5-2F5F-49B2-A665-85C842409F2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiBot", "WebApiBot\WebApiBot.csproj", "{77CE0A9D-FA59-411B-BCF8-FDA7C778D87E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{69FCF1C5-2F5F-49B2-A665-85C842409F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69FCF1C5-2F5F-49B2-A665-85C842409F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69FCF1C5-2F5F-49B2-A665-85C842409F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77CE0A9D-FA59-411B-BCF8-FDA7C778D87E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77CE0A9D-FA59-411B-BCF8-FDA7C778D87E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77CE0A9D-FA59-411B-BCF8-FDA7C778D87E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77CE0A9D-FA59-411B-BCF8-FDA7C778D87E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

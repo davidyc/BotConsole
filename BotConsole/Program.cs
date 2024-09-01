@@ -8,6 +8,7 @@ using TelegramBotAzureSQL;
 var BotToken = "7161910156:AAECxhkkwkF5538utqm9exEtEaA8NrMZnvU";
 
 var botClient = new TelegramBotClient(BotToken);
+await botClient.DeleteWebhookAsync();
 
 DatabaseAzure.Initialize();
 

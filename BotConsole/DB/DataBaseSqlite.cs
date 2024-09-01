@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace TelegramBotSQLite
+namespace BotConsole.DB
 {
     public static class Database
     {

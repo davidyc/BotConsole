@@ -13,6 +13,7 @@ namespace TelegramBotAzureSQL
             using var connection = new SqlConnection(ConnectionString);
             connection.Open();
 
+            // Создаем таблицу Weights, если она не существует
             string createWeightsTable = @"IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Weights' and xtype='U')
                                           CREATE TABLE Weights (
                                           Id INT PRIMARY KEY IDENTITY,
@@ -22,6 +23,15 @@ namespace TelegramBotAzureSQL
                                           DateRecorded DATETIME)";
             using var createWeightsCommand = new SqlCommand(createWeightsTable, connection);
             createWeightsCommand.ExecuteNonQuery();
+
+            // Создаем таблицу Logs, если она не существует
+            string createLogsTable = @"IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Logs' and xtype='U')
+                                       CREATE TABLE Logs (
+                                       Id INT PRIMARY KEY IDENTITY,
+                                       LogMessage NVARCHAR(MAX),
+                                       DateLogged DATETIME)";
+            using var createLogsCommand = new SqlCommand(createLogsTable, connection);
+            createLogsCommand.ExecuteNonQuery();
         }
 
         public static void SaveWeight(long userId, string userName, double weight, string dateRecorded)
@@ -81,6 +91,19 @@ namespace TelegramBotAzureSQL
             }
 
             return weights;
+        }
+
+      
+        public static void LogToDatabase(string logMessage)
+        {
+            using var connection = new SqlConnection(ConnectionString);
+            connection.Open();
+
+            string insertCommand = "INSERT INTO Logs (LogMessage, DateLogged) VALUES (@LogMessage, @DateLogged)";
+            using var insert = new SqlCommand(insertCommand, connection);
+            insert.Parameters.AddWithValue("@LogMessage", logMessage);
+            insert.Parameters.AddWithValue("@DateLogged", DateTime.Now);
+            insert.ExecuteNonQuery();
         }
     }
 }
